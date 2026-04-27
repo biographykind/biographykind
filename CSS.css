@@ -2,21 +2,21 @@
 .separate-containers .inside-article {
     border-radius: 18px !important;
     overflow: hidden;
-    border: 1px solid #eef2f6 !important;
+    border: 1px solid #d6d6d6 !important;
     padding: 0 !important; /* This is 0 to merge H1 and Image */
 }
 
 /* 2. MERGED HEADER (H1 and Featured Image) */
 .entry-header {
-    background-color: #f8fafc;
-    padding: 30px 25px !important; /* Space inside Title */
+    background-color: #281812;
+    padding: 50px 50px !important; /* Space inside Title */
     margin: 0 !important;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid #d6d6d6;
 }
 
 .entry-header h1 {
-    margin: 0 !important;
-    color: #1a202c;
+    margin: 0px !important;
+    color: #ffffff;
     /* Font size from your theme panel */
 }
 
@@ -37,20 +37,20 @@
 /* 3. SECTION BOXES & TOC STANDALONE */
 .post-section-box, .bk-toc-wrapper {
     background-color: #ffffff;
-    border: 1px solid #e2e8f0;
+    border: 1px solid #d6d6d6;
     border-radius: 12px;
     margin: 0 25px 30px 25px !important; /* Side margin for boxes */
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    box-shadow: 0 0px 0px rgba(0,0,0,0.02);
 }
 
 /* 4. PADDING INSIDE BOXES (FIXED MARGIN/PADDING) */
 /* Heading Title Bar */
 .post-section-box h2, .bk-toc-summary {
-    background-color: #f8fafc !important;
+    background-color: #f7f5f3 !important;
     padding: 15px 20px !important;
     margin: 0 !important;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid #d6d6d6;
     font-weight: 700;
 }
 
@@ -74,7 +74,7 @@
 
 /* 6. TOC LIST STYLE */
 .bk-toc-summary { display: list-item; cursor: pointer; font-size: 20px; }
-.bk-toc-summary::marker { color: #3b82f6; }
+.bk-toc-summary::marker { color: #281812; }
 .bk-toc-list {
     padding: 20px 20px 20px 45px !important;
     margin: 0 !important;
@@ -82,7 +82,7 @@
 }
 .bk-toc-list li { position: relative; margin-bottom: 10px; }
 .bk-toc-list li::before {
-    content: "•"; color: #3b82f6; position: absolute; left: -25px; font-weight: bold; font-size: 1.5rem; top: -5px;
+    content: "•"; color: #281812; position: absolute; left: -25px; font-weight: bold; font-size: 1.5rem; top: -5px;
 }
 
 /* 7. IMAGE FIX (Respects WP Admin Size) */
@@ -120,7 +120,7 @@ footer.entry-meta, .related-posts, .comments-area {
 /* 1. Sidebar Widget Container */
 .sidebar .widget {
     background-color: #ffffff !important;
-    border: 1px solid #e2e8f0 !important;
+    border: 1px solid #d6d6d6 !important;
     border-radius: 12px !important;
     margin-bottom: 30px !important;
     overflow: hidden !important; /* Header background curve ke liye */
@@ -134,7 +134,7 @@ footer.entry-meta, .related-posts, .comments-area {
     color: #1e293b !important;
     padding: 12px 20px !important;
     margin: 0 !important;
-    border-bottom: 1px solid #e2e8f0 !important;
+    border-bottom: 1px solid #d6d6d6 !important;
     font-weight: 700 !important;
     /* Font size theme panel wala hi rahega */
 }
@@ -157,7 +157,7 @@ footer.entry-meta, .related-posts, .comments-area {
 
 .sidebar .widget ul li {
     padding: 8px 0 !important;
-    border-bottom: 1px solid #f1f5f9; /* Light separator between links */
+    border-bottom: 1px solid #d6d6d6; /* Light separator between links */
 }
 
 .sidebar .widget ul li:last-child {
@@ -166,12 +166,12 @@ footer.entry-meta, .related-posts, .comments-area {
 
 .sidebar .widget ul li a {
     text-decoration: none;
-    color: #334155;
+    color: #281812;
     transition: color 0.2s;
 }
 
 .sidebar .widget ul li a:hover {
-    color: #3b82f6; /* Link hover color */
+    color: #Fc4100; /* Link hover color */
 }
 
 /* 5. Mobile Adjustment for Sidebar */
@@ -208,4 +208,3 @@ footer.entry-meta, .related-posts, .comments-area {
         padding: 0 5px;
     }
 }
-
