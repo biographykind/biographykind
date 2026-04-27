@@ -208,3 +208,34 @@ footer.entry-meta, .related-posts, .comments-area {
         padding: 0 5px;
     }
 }
+
+/* Refined Global Table Design */
+.entry-content table, .wp-block-table table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+    margin: 0 !important;
+    border: none !important;
+}
+
+/* Common Cell Styling */
+.entry-content th, .entry-content td {
+    padding: 8px !important;
+    text-align: left;
+    border: none !important;
+    border-bottom: 1px solid #e0e0e0 !important;
+}
+
+/* 35/65 Ratio and Bold Left Column */
+.entry-content :is(th, td):first-child {
+    width: 35% !important;
+    font-weight: bold !important;
+}
+
+.entry-content :is(th, td):nth-child(2) {
+    width: 65% !important;
+}
+
+/* Hide the Last Horizontal Line */
+.entry-content tr:last-child :is(th, td) {
+    border-bottom: none !important;
+}
