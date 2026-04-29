@@ -1,241 +1,112 @@
-/* 1. MAIN CONTAINER RADIUS (GeneratePress Article) */
+/* ============================================================
+   MASTER STYLESHEET - STABLE VERSION
+   ============================================================ */
+:root {
+    --primary-brown: #281812;
+    --accent-orange: #Fc4100;
+    --border-soft: #d6d6d6;
+    --heading-tint: #f7f5f3;
+}
+
+/* 1. ARTICLE & PAGE PADDING FIX */
 .separate-containers .inside-article {
     border-radius: 18px !important;
     overflow: hidden;
-    border: 1px solid #d6d6d6 !important;
-    padding: 0 !important; /* This is 0 to merge H1 and Image */
-}
-
-/* 2. MERGED HEADER (H1 and Featured Image) */
-.entry-header {
-    background-color: #281812;
-    padding: 50px 50px !important; /* Space inside Title */
-    margin: 0 !important;
-    border-bottom: 1px solid #d6d6d6;
-}
-
-.entry-header h1 {
-    margin: 0px !important;
-    color: #ffffff;
-    /* Font size from your theme panel */
-}
-
-.featured-image {
-    background-color: #ffffff;
-    padding: 20px 25px !important; /* Space around image */
-    margin: 0px !important;
-    text-align: center;
-}
-
-.featured-image img {
-    border-radius: 12px !important;
-    width: auto !important; /* Respect theme size */
-    max-width: 100% !important;
-    height: auto !important;
-}
-
-/* 3. SECTION BOXES & TOC STANDALONE */
-.post-section-box, .bk-toc-wrapper {
-    background-color: #ffffff;
-    border: 1px solid #d6d6d6;
-    border-radius: 12px;
-    margin: 0 25px 30px 25px !important; /* Side margin for boxes */
-    overflow: hidden;
-    box-shadow: 0 0px 0px rgba(0,0,0,0.02);
-}
-
-/* 4. PADDING INSIDE BOXES (FIXED MARGIN/PADDING) */
-/* Heading Title Bar */
-.post-section-box h2, .bk-toc-summary {
-    background-color: #f7f5f3 !important;
-    padding: 15px 20px !important;
-    margin: 0 !important;
-    border-bottom: 1px solid #d6d6d6;
-    font-weight: 700;
-}
-
-/* Content inside boxes (Paragraphs, etc.) */
-.post-section-box > *:not(h2) {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-    margin-top: 20px !important; /* Space after heading */
-    margin-bottom: 20px !important; /* Space between elements */
-}
-
-/* 5. INTRO BOX (Directly after Image) */
-.post-section-box.intro-section {
-    border: none !important;
-    box-shadow: none !important;
-    margin-top: 0px !important;
-    border-bottom: 4px solid #f1f5f9 !important;
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
-}
-
-/* 6. TOC LIST STYLE */
-.bk-toc-summary { display: list-item; cursor: pointer; font-size: 20px; }
-.bk-toc-summary::marker { color: #281812; }
-.bk-toc-list {
-    padding: 20px 20px 20px 45px !important;
-    margin: 0 !important;
-    list-style: none !important;
-}
-.bk-toc-list li { position: relative; margin-bottom: 10px; }
-.bk-toc-list li::before {
-    content: "•"; color: #281812; position: absolute; left: -25px; font-weight: bold; font-size: 1.5rem; top: -5px;
-}
-
-/* 7. IMAGE FIX (Respects WP Admin Size) */
-.post-section-box img {
-    border-radius: 10px !important;
-    width: auto !important;
-    max-width: 100% !important;
-    height: auto !important;
-    display: block;
-    margin: 20px auto !important;
-}
-
-/* 8. FOOTER ELEMENTS (Categories, Related Posts) */
-footer.entry-meta, .related-posts, .comments-area {
-    padding: 25px !important;
-    margin: 20px 25px !important;
-    background: #ffffff;
-    border-radius: 12px;
-    border: 1px solid #eef2f6;
-}
-
-/* Mobile Adjustments */
-@media (max-width: 768px) {
-    .post-section-box, .bk-toc-wrapper, footer.entry-meta, .related-posts {
-        margin: 0 10px 25px 10px !important;
-    }
-    .post-section-box > *:not(h2) { padding-left: 15px !important; padding-right: 15px !important; }
-}
-
-
-/* ============================================================
-   SIDEBAR WIDGETS SECTION DESIGN (Matched with Content)
-   ============================================================ */
-
-/* 1. Sidebar Widget Container */
-.sidebar .widget {
+    border: 0px solid var(--border-soft);
     background-color: #ffffff !important;
-    border: 1px solid #d6d6d6 !important;
-    border-radius: 12px !important;
-    margin-bottom: 30px !important;
-    overflow: hidden !important; /* Header background curve ke liye */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.02) !important;
-    padding: 0 !important; /* Padding title bar ke niche se shuru hogi */
 }
+/* Biography posts need zero padding for merge effect */
+.single-post.separate-containers .inside-article { padding: 0 !important; }
+/* Static Pages (About/Contact) need padding */
+.page:not(.home).separate-containers .inside-article { padding: 40px !important; }
 
-/* 2. Sidebar Widget Title (Title Bar Look) */
-.sidebar .widget .widget-title {
-    background-color: #f8fafc !important; /* Same as Post H2 background */
-    color: #1e293b !important;
+/* 2. POST BOXES (H2 SECTIONS) */
+.post-section-box {
+    border: 1px solid var(--border-soft);
+    border-radius: 12px;
+    margin: 0 20px 30px 20px !important;
+    overflow: hidden;
+    background: #ffffff;
+}
+.post-section-box h2 {
+    background-color: var(--heading-tint);
     padding: 12px 20px !important;
     margin: 0 !important;
-    border-bottom: 1px solid #d6d6d6 !important;
-    font-weight: 700 !important;
-    /* Font size theme panel wala hi rahega */
+    border-bottom: 1px solid var(--border-soft);
+    font-weight: 700;
+    color: var(--primary-brown);
+}
+.post-section-box > *:not(h2) { padding: 0 20px; margin-top: 20px; }
+
+/* 3. TOC DESIGN & ARROW */
+.bk-toc-section { border: 1px solid var(--primary-brown) !important; border-radius: 12px; margin: 30px 20px !important; overflow: hidden; background: #fff; }
+.bk-toc-header { padding: 15px 20px; cursor: pointer; font-weight: 700; color: var(--primary-brown); display: flex; justify-content: space-between; list-style: none; align-items: center; }
+.bk-toc-header::after { content: '\25BC'; font-size: 12px; transition: 0.3s; }
+.bk-toc-section[open] .bk-toc-header::after { transform: rotate(180deg); }
+.bk-toc-section[open] .bk-toc-header { background: var(--heading-tint); border-bottom: 1px solid var(--border-soft); }
+.bk-toc-list-items { padding: 20px 20px 20px 45px !important; list-style: none !important; margin: 0 !important; }
+.bk-toc-list-items li { position: relative; margin-bottom: 10px; }
+.bk-toc-list-items li::before { content: "•"; color: var(--accent-orange); position: absolute; left: -25px; font-weight: bold; font-size: 1.5rem; top: -2px; }
+
+/* 4. TABLE DESIGN (35/65, HORIZONTAL LINES ONLY) */
+.custom-table-minimal { margin: -10px 0; overflow-x: none; border: none !important; }
+.custom-table-minimal table { width: 100%; border-collapse: collapse; table-layout: fixed; border: none !important; }
+.custom-table-minimal td { 
+    padding: 6px 0px !important; 
+    border-bottom: 1px solid var(--border-soft) !important;
+    text-align: left !important;
+    border-top: none !important; border-left: none !important; border-right: none !important;
+}
+.custom-table-minimal td:first-child { width: 40%; font-weight: 700 !important; color: var(--primary-brown); padding-left: 4px !important; }
+.custom-table-minimal tr:last-child td { border-bottom: none !important; }
+
+/* 5. ARTICLE IMAGE SIZE & CENTERING FIX */
+.single-post .post-section-box figure, 
+.single-post .post-section-box img {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    float: none !important;
+    clear: both !important;
 }
 
-/* 3. Sidebar Widget Content Padding */
-/* Isse widget ke andar ka text/links chipkenge nahi */
-.sidebar .widget > *:not(.widget-title) {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-    margin-top: 20px !important;
-    margin-bottom: 20px !important;
-}
-
-/* 4. Sidebar List Styling (Optional: For Recent Posts, Categories) */
-.sidebar .widget ul {
-    list-style: none !important;
-    margin-left: 0 !important;
-    padding-left: 0 !important;
-}
-
-.sidebar .widget ul li {
-    padding: 8px 0 !important;
-    border-bottom: 1px solid #d6d6d6; /* Light separator between links */
-}
-
-.sidebar .widget ul li:last-child {
-    border-bottom: none !important; /* Last link ke niche line nahi */
-}
-
-.sidebar .widget ul li a {
-    text-decoration: none;
-    color: #281812;
-    transition: color 0.2s;
-}
-
-.sidebar .widget ul li a:hover {
-    color: #Fc4100; /* Link hover color */
-}
-
-/* 5. Mobile Adjustment for Sidebar */
-@media (max-width: 768px) {
-    .sidebar .widget {
-        margin-left: 10px !important;
-        margin-right: 10px !important;
-    }
-}
-
-/* 1. Article Images - Max Width 600px */
-.post-section-box img {
-    border-radius: 8px !important;
-    width: auto !important;         /* Preserve aspect ratio */
-    max-width: 500px !important;    /* Fixed max width */
-    max-height: 500px !important;
-    display: block;
-    margin: 25px auto !important;   /* Centered */
-}
-
-/* 2. Featured Image (Thumbnail) - Respected Theme Size */
-.featured-image img {
-    max-width: 100% !important;
+.single-post .post-section-box img { 
+    max-width: 400px !important; 
+    max-height: 400px !important; 
     width: auto !important; 
     height: auto !important;
-    margin: 0 auto !important;
-    display: block;
+    border-radius: 8px !important;
+    margin-top: 25px !important;
+    margin-bottom: 25px !important;
 }
 
-/* 3. Mobile Display */
+/* Mobile Specific Sticking Fix */
 @media (max-width: 768px) {
-    .post-section-box img {
-        max-width: 100% !important; /* Full width on small screens */
-        padding: 0 5px;
+    .single-post .post-section-box img {
+        /* Ensures image stays away from the very edge */
+        max-width: calc(100% - 20px) !important; 
+        max-height: 350px !important;
+    }
+    
+    .single-post .post-section-box figure {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
     }
 }
 
-/* Refined Global Table Design */
-.entry-content table, .wp-block-table table {
-    border-collapse: collapse !important;
-    width: 100% !important;
-    margin: 0 !important;
-    border: none !important;
+/* 6. SEARCH PILL */
+.bk-search-pill .wp-block-search__inside-wrapper { border-radius: 50px !important; border: 1px solid var(--border-soft) !important; padding: 4px !important; display: flex !important; }
+.bk-search-pill .wp-block-search__input { border: none !important; padding-left: 20px !important; background: transparent !important; outline: none !important; }
+.bk-search-pill .wp-block-search__button { border-radius: 50px !important; background: var(--primary-brown) !important; color: #fff !important; border: none !important; padding: 8px 25px !important; }
+
+/* 7. PC HOVER MOTION (ZOOM) */
+@media (min-width: 1025px) {
+    .bk-hover-card { transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out !important; transform: translateZ(0); }
+    .bk-hover-card:hover { transform: scale(1.02) !important; box-shadow: 0 10px 30px rgba(40, 24, 18, 0.08) !important; }
 }
 
-/* Common Cell Styling */
-.entry-content th, .entry-content td {
-    padding: 8px !important;
-    text-align: left;
-    border: none !important;
-    border-bottom: 1px solid #e0e0e0 !important;
-}
-
-/* 35/65 Ratio and Bold Left Column */
-.entry-content :is(th, td):first-child {
-    width: 35% !important;
-    font-weight: bold !important;
-}
-
-.entry-content :is(th, td):nth-child(2) {
-    width: 65% !important;
-}
-
-/* Hide the Last Horizontal Line */
-.entry-content tr:last-child :is(th, td) {
-    border-bottom: none !important;
-}
+/* 8. BREADCRUMBS & JUMPS */
+.bk-breadcrumbs-wrapper { margin: 20px 25px 10px 25px; font-size: 14px; }
+.bk-breadcrumbs-wrapper a { color: var(--accent-orange); text-decoration: none; font-weight: 500; }
+h2[id] { scroll-margin-top: 100px; }
