@@ -1,26 +1,24 @@
 /* ============================================================
-   MASTER STYLESHEET - STABLE VERSION
+   MASTER STYLESHEET - YOUR PREFERRED VERSION (FIXED)
    ============================================================ */
 :root {
-    --primary-brown: #281812;
-    --accent-orange: #Fc4100;
+    --primary-black: #000000;
+    --accent-color: #281812; 
     --border-soft: #d6d6d6;
     --heading-tint: #f7f5f3;
 }
 
-/* 1. ARTICLE & PAGE PADDING FIX */
+/* 1. CONTAINER LOGIC */
 .separate-containers .inside-article {
     border-radius: 18px !important;
     overflow: hidden;
     border: 0px solid var(--border-soft);
     background-color: #ffffff !important;
 }
-/* Biography posts need zero padding for merge effect */
 .single-post.separate-containers .inside-article { padding: 0 !important; }
-/* Static Pages (About/Contact) need padding */
 .page:not(.home).separate-containers .inside-article { padding: 40px !important; }
 
-/* 2. POST BOXES (H2 SECTIONS) */
+/* 2. POST SECTION BOXES */
 .post-section-box {
     border: 1px solid var(--border-soft);
     border-radius: 12px;
@@ -29,84 +27,171 @@
     background: #ffffff;
 }
 .post-section-box h2 {
-    background-color: var(--heading-tint);
-    padding: 12px 20px !important;
+    background-color: var(--accent-color) !important; 
+    padding: 14px 20px !important;
     margin: 0 !important;
-    border-bottom: 1px solid var(--border-soft);
     font-weight: 700;
-    color: var(--primary-brown);
+    color: #ffffff !important; 
+    text-transform: capitalize;
 }
-.post-section-box > *:not(h2) { padding: 0 20px; margin-top: 20px; }
 
-/* 3. TOC DESIGN & ARROW */
-.bk-toc-section { border: 1px solid var(--primary-brown) !important; border-radius: 12px; margin: 30px 20px !important; overflow: hidden; background: #fff; }
-.bk-toc-header { padding: 15px 20px; cursor: pointer; font-weight: 700; color: var(--primary-brown); display: flex; justify-content: space-between; list-style: none; align-items: center; }
+/* Spacing for content inside boxes */
+.post-section-box > *:not(h2) { 
+    margin-left: 20px !important; 
+    margin-right: 20px !important; 
+    margin-top: 20px; 
+}
+
+/* List Alignment */
+.post-section-box ul, .post-section-box ol {
+    padding-left: 25px !important; 
+    margin-bottom: 20px;
+}
+
+/* 3. TABLE OF CONTENTS (TOC) */
+.bk-toc-section { border: 1px solid var(--primary-black) !important; border-radius: 12px; margin: 30px 20px !important; overflow: hidden; background: #fff; }
+.bk-toc-header { padding: 15px 20px; cursor: pointer; font-weight: 700; color: var(--primary-black); display: flex; justify-content: space-between; list-style: none; align-items: center; }
 .bk-toc-header::after { content: '\25BC'; font-size: 12px; transition: 0.3s; }
 .bk-toc-section[open] .bk-toc-header::after { transform: rotate(180deg); }
 .bk-toc-section[open] .bk-toc-header { background: var(--heading-tint); border-bottom: 1px solid var(--border-soft); }
 .bk-toc-list-items { padding: 20px 20px 20px 45px !important; list-style: none !important; margin: 0 !important; }
 .bk-toc-list-items li { position: relative; margin-bottom: 10px; }
-.bk-toc-list-items li::before { content: "•"; color: var(--accent-orange); position: absolute; left: -25px; font-weight: bold; font-size: 1.5rem; top: -2px; }
+.bk-toc-list-items li::before { content: "•"; color: var(--accent-color); position: absolute; left: -25px; font-weight: bold; font-size: 1.5rem; top: -2px; }
 
-/* 4. TABLE DESIGN (35/65, HORIZONTAL LINES ONLY) */
-.custom-table-minimal { margin: -10px 0; overflow-x: none; border: none !important; }
-.custom-table-minimal table { width: 100%; border-collapse: collapse; table-layout: fixed; border: none !important; }
-.custom-table-minimal td { 
-    padding: 6px 0px !important; 
-    border-bottom: 1px solid var(--border-soft) !important;
-    text-align: left !important;
-    border-top: none !important; border-left: none !important; border-right: none !important;
+/* 4. TABLE DESIGN (SEO FIXED) */
+.custom-table-minimal { 
+    margin: 10px 0 !important; 
+    border: none !important; 
+    overflow-x: auto; /* Important for Mobile SEO */
 }
-.custom-table-minimal td:first-child { width: 40%; font-weight: 700 !important; color: var(--primary-brown); padding-left: 4px !important; }
+.custom-table-minimal table { width: 100%; border-collapse: collapse; border: none !important; }
+.custom-table-minimal td { 
+    padding: 8px 25px !important; 
+    border-bottom: 1px solid rgba(214, 214, 214, 0.5) !important; 
+    text-align: left !important;
+    border-top: none !important; 
+    border-left: none !important; 
+    border-right: 1px solid rgba(214, 214, 214, 0.5) !important; 
+}
+.custom-table-minimal td:last-child { border-right: none !important; }
+.custom-table-minimal td:first-child { 
+    width: 40%; 
+    font-weight: 700 !important; 
+    color: var(--primary-black); 
+}
 .custom-table-minimal tr:last-child td { border-bottom: none !important; }
 
-/* 5. ARTICLE IMAGE SIZE & CENTERING FIX */
+/* 5. ARTICLE IMAGE OPTIMIZATION */
+
+/* Target images specifically inside the post section box */
 .single-post .post-section-box figure, 
 .single-post .post-section-box img {
     display: block !important;
     margin-left: auto !important;
     margin-right: auto !important;
     float: none !important;
-    clear: both !important;
+    clear: both;
 }
 
 .single-post .post-section-box img { 
-    max-width: 400px !important; 
-    max-height: 400px !important; 
-    width: auto !important; 
-    height: auto !important;
-    border-radius: 8px !important;
+    /* Desktop settings: Fix height to 350px and keep width proportional */
+    height: 350px !important; 
+    width: auto !important;   
+    max-width: 100% !important; 
+    
+    /* Avoid image distortion (prevents stretching) */
+    object-fit: contain !important; 
+    
+    /* Styling: Smooth rounded corners and spacing */
+    border-radius: 15px !important; 
     margin-top: 25px !important;
     margin-bottom: 25px !important;
+    
+    /* Subtle shadow for a professional Look */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-/* Mobile Specific Sticking Fix */
+/* Responsive adjustments for Tablets and Mobiles */
 @media (max-width: 768px) {
     .single-post .post-section-box img {
-        /* Ensures image stays away from the very edge */
-        max-width: calc(100% - 20px) !important; 
-        max-height: 350px !important;
-    }
-    
-    .single-post .post-section-box figure {
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        width: 100% !important;
+        /* On mobile, let height adjust automatically to fit screen width */
+        height: auto !important;
+        max-height: 350px !important; 
+        width: 90% !important; 
+        border-radius: 10px !important;
     }
 }
 
 /* 6. SEARCH PILL */
 .bk-search-pill .wp-block-search__inside-wrapper { border-radius: 50px !important; border: 1px solid var(--border-soft) !important; padding: 4px !important; display: flex !important; }
 .bk-search-pill .wp-block-search__input { border: none !important; padding-left: 20px !important; background: transparent !important; outline: none !important; }
-.bk-search-pill .wp-block-search__button { border-radius: 50px !important; background: var(--primary-brown) !important; color: #fff !important; border: none !important; padding: 8px 25px !important; }
+.bk-search-pill .wp-block-search__button { border-radius: 50px !important; background: var(--primary-black) !important; color: #fff !important; padding: 8px 25px !important; }
 
-/* 7. PC HOVER MOTION (ZOOM) */
+/* 7. HOVER MOTION */
 @media (min-width: 1025px) {
-    .bk-hover-card { transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out !important; transform: translateZ(0); }
-    .bk-hover-card:hover { transform: scale(1.02) !important; box-shadow: 0 10px 30px rgba(40, 24, 18, 0.08) !important; }
+    .bk-hover-card { transition: transform 0.3s ease, box-shadow 0.3s ease !important; }
+    .bk-hover-card:hover { transform: scale(1.02) !important; box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important; }
 }
 
-/* 8. BREADCRUMBS & JUMPS */
+/* 8. BREADCRUMBS */
 .bk-breadcrumbs-wrapper { margin: 20px 25px 10px 25px; font-size: 14px; }
-.bk-breadcrumbs-wrapper a { color: var(--accent-orange); text-decoration: none; font-weight: 500; }
-h2[id] { scroll-margin-top: 100px; }
+.bk-breadcrumbs-wrapper a { text-decoration: none; font-weight: 500; }
+
+/* 9. H3 DESIGN (FIXED UNDERLINE) */
+.post-section-box h3 {
+    display: table !important;
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 4px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 20px !important; 
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+/* 10. THUMBNAIL POSITION FIX */
+.bk-hero-flex img {
+    object-position: 50% 0% !important; 
+    object-fit: cover !important;
+}
+
+/* 11. ADVERTISEMENT WITH LABEL */
+.ad-wrapper {
+    display: block !important;
+    background-color: #F9F7F5 !important; 
+    margin-left: -20px !important; 
+    margin-right: -20px !important;
+    width: calc(100% + 40px) !important;
+    margin-top: -20px !important;
+    margin-bottom: 30px !important;
+    padding: 25px 0 10px 0 !important;
+    border-top: 1px solid var(--border-soft);
+    border-bottom: 1px solid var(--border-soft);
+    text-align: center !important;
+}
+.ad-label {
+    display: block !important;
+    text-align: center !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    color: #999999 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    margin-bottom: 10px !important;
+}
+
+/* MOBILE ADJUSTMENTS */
+@media (max-width: 768px) {
+    .post-section-box { margin: 0 15px 25px 15px !important; }
+    
+    /* Prevents images from touching screen edges */
+    .post-section-box img { 
+        max-width: calc(100% - 20px) !important; 
+        margin-left: 10px !important;
+        margin-right: 10px !important;
+    }
+    
+    .ad-wrapper { margin-left: -15px !important; margin-right: -15px !important; width: calc(100% + 30px) !important; }
+    .post-section-box h2 { font-size: 20px !important; padding: 12px 15px !important; }
+    .bk-hero-flex img { object-position: center 5% !important; }
+}
