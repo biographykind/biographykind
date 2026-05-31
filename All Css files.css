@@ -48,38 +48,91 @@
     margin-bottom: 20px;
 }
 
-/* 3. TABLE OF CONTENTS (TOC) */
-.bk-toc-section { border: 1px solid var(--primary-black) !important; border-radius: 12px; margin: 30px 20px !important; overflow: hidden; background: #fff; }
-.bk-toc-header { padding: 15px 20px; cursor: pointer; font-weight: 700; color: var(--primary-black); display: flex; justify-content: space-between; list-style: none; align-items: center; }
-.bk-toc-header::after { content: '\25BC'; font-size: 12px; transition: 0.3s; }
-.bk-toc-section[open] .bk-toc-header::after { transform: rotate(180deg); }
-.bk-toc-section[open] .bk-toc-header { background: var(--heading-tint); border-bottom: 1px solid var(--border-soft); }
-.bk-toc-list-items { padding: 20px 20px 20px 45px !important; list-style: none !important; margin: 0 !important; }
-.bk-toc-list-items li { position: relative; margin-bottom: 10px; }
-.bk-toc-list-items li::before { content: "•"; color: var(--accent-color); position: absolute; left: -25px; font-weight: bold; font-size: 1.5rem; top: -2px; }
+/* 3. TABLE OF CONTENTS (TOC) - CLEAN VERSION */
+.bk-toc-section { 
+    border: 1px solid var(--primary-black) !important; 
+    border-radius: 12px; 
+    margin: 30px 20px !important; 
+    overflow: hidden; 
+    background: #fff; 
+}
+
+.bk-toc-header { 
+    padding: 15px 20px; 
+    cursor: pointer; 
+    font-weight: 700; 
+    color: var(--primary-black); 
+    display: flex; 
+    justify-content: space-between; 
+    list-style: none; 
+    align-items: center; 
+}
+
+.bk-toc-header::after { 
+    content: '\25BC'; 
+    font-size: 12px; 
+    transition: 0.3s; 
+}
+
+.bk-toc-section[open] .bk-toc-header::after { 
+    transform: rotate(180deg); 
+}
+
+.bk-toc-section[open] .bk-toc-header { 
+    background: var(--heading-tint); 
+    border-bottom: 1px solid var(--border-soft); 
+}
+
+.bk-toc-list-items { 
+    padding: 20px 20px 20px 45px !important; 
+    list-style: none !important; 
+    margin: 0 !important; 
+}
+
+.bk-toc-list-items li { 
+    position: relative; 
+    margin-bottom: 10px; 
+}
+
+.bk-toc-list-items li::before { 
+    content: "•"; 
+    color: var(--accent-color); 
+    position: absolute; 
+    left: -25px; 
+    font-weight: bold; 
+    font-size: 1.5rem; 
+    top: -2px; 
+}
 
 /* 4. TABLE DESIGN (SEO FIXED) */
-.custom-table-minimal { 
-    margin: 10px 0 !important; 
-    border: none !important; 
-    overflow-x: auto; /* Important for Mobile SEO */
+.custom-table-minimal {
+    margin: 20px 0 !important;
+    overflow-x: auto;
+    border: none !important;
 }
-.custom-table-minimal table { width: 100%; border-collapse: collapse; border: none !important; }
-.custom-table-minimal td { 
-    padding: 8px 25px !important; 
-    border-bottom: 1px solid rgba(214, 214, 214, 0.5) !important; 
+
+.custom-table-minimal table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none !important;
+}
+
+.custom-table-minimal td {
+    padding: 12px 15px !important;
+    border-bottom: 1px solid #d6d6d6 !important;
+    border-right: 1px solid #d6d6d6 !important;
+    border-top: none !important;
+    border-left: none !important;
     text-align: left !important;
-    border-top: none !important; 
-    border-left: none !important; 
-    border-right: 1px solid rgba(214, 214, 214, 0.5) !important; 
 }
-.custom-table-minimal td:last-child { border-right: none !important; }
-.custom-table-minimal td:first-child { 
-    width: 40%; 
-    font-weight: 700 !important; 
-    color: var(--primary-black); 
+
+.custom-table-minimal td:last-child {
+    border-right: none !important;
 }
-.custom-table-minimal tr:last-child td { border-bottom: none !important; }
+
+.custom-table-minimal tr:last-child td {
+    border-bottom: none !important;
+}
 
 /* 5. ARTICLE IMAGE OPTIMIZATION */
 
@@ -127,10 +180,21 @@
 .bk-search-pill .wp-block-search__input { border: none !important; padding-left: 20px !important; background: transparent !important; outline: none !important; }
 .bk-search-pill .wp-block-search__button { border-radius: 50px !important; background: var(--primary-black) !important; color: #fff !important; padding: 8px 25px !important; }
 
-/* 7. HOVER MOTION */
+/* 7. PROFILE CARD HOVER MOTION */
 @media (min-width: 1025px) {
-    .bk-hover-card { transition: transform 0.3s ease, box-shadow 0.3s ease !important; }
-    .bk-hover-card:hover { transform: scale(1.02) !important; box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important; }
+    .bk-hover-card {
+        will-change: transform, box-shadow;
+        transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        perspective: 1000px;
+        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                    box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    }
+
+    .bk-hover-card:hover {
+        transform: translate3d(0, -5px, 0) !important;
+        box-shadow: 0 12px 24px rgba(0,0,0,0.1) !important;
+    }
 }
 
 /* 8. BREADCRUMBS */
@@ -155,43 +219,27 @@
     object-fit: cover !important;
 }
 
-/* 11. ADVERTISEMENT WITH LABEL */
+/* The main container for ads - Centers the content globally */
 .ad-wrapper {
     display: block !important;
-    background-color: #F9F7F5 !important; 
-    margin-left: -20px !important; 
-    margin-right: -20px !important;
-    width: calc(100% + 40px) !important;
-    margin-top: -20px !important;
-    margin-bottom: 30px !important;
-    padding: 25px 0 10px 0 !important;
-    border-top: 1px solid var(--border-soft);
-    border-bottom: 1px solid var(--border-soft);
-    text-align: center !important;
-}
-.ad-label {
-    display: block !important;
-    text-align: center !important;
-    font-size: 11px !important;
-    font-weight: 600 !important;
-    color: #999999 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 1px !important;
-    margin-bottom: 10px !important;
+    text-align: center !important; /* Centers the Ad and Label */
+    background: transparent !important; 
+    border: none !important;
+    margin: 25px auto !important; /* Vertical spacing and horizontal centering */
+    padding: 0 !important;
+    clear: both;
+    width: 100% !important; /* Ensures it takes full width of its parent */
 }
 
-/* MOBILE ADJUSTMENTS */
-@media (max-width: 768px) {
-    .post-section-box { margin: 0 15px 25px 15px !important; }
-    
-    /* Prevents images from touching screen edges */
-    .post-section-box img { 
-        max-width: calc(100% - 20px) !important; 
-        margin-left: 10px !important;
-        margin-right: 10px !important;
-    }
-    
-    .ad-wrapper { margin-left: -15px !important; margin-right: -15px !important; width: calc(100% + 30px) !important; }
-    .post-section-box h2 { font-size: 20px !important; padding: 12px 15px !important; }
-    .bk-hero-flex img { object-position: center 5% !important; }
+/* The "ADVERTISEMENT" text label */
+.ad-label {
+    display: block !important;
+    text-align: center !important; /* Perfectly centered text */
+    font-size: 11px !important;
+    color: #999999 !important; /* Light gray to be less sharp */
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
+    margin-bottom: 8px !important;
+    font-weight: 600;
+    line-height: 1 !important;
 }
